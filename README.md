@@ -1,5 +1,5 @@
 # PyPlex
 PyPlex Theme for Pyload
 
-Markdown example ![Settings Window]
-(https://github.com/xunil75/PyPlex/master/Screenshots/Settings.png)
+![Settings Window]
+(https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.38.03.png)
