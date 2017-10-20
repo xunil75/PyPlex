@@ -17,4 +17,22 @@ For now these are some screenshots on how it looks now:
 
 ![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.38.53.png)
 
+![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.39.02.png)
+
+![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.39.08.png)
+
+![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.39.15.png)
+
+![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.39.22.png)
+
+![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.39.32.png)
+
+![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.39.51.png)
+
+![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.40.04.png)
+
+![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.40.38.png)
+
+![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.41.13.png)
+
 
