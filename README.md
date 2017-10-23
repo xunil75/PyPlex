@@ -30,7 +30,7 @@ Copy the files from this repro from `media` folder to `/usr/share/pyload/module/
 
 Restart your pyload Server
 
-Login into the PyLoad webinterface. Navigate to the Config page, General Tab and click on "Webinterface". Enter the name of the new theme: "PyPlex" in the template field.
+Login into the PyLoad webinterface. Navigate to the Config page, General Tab and click on "Webinterface". Enter the name of the new theme: "PyPlex" in the template field and hit "Submit"
 
 Restart your pyload server
 
