@@ -22,10 +22,11 @@ Insert the following lines of code right after:
 
 `"PyPlex": FileSystemLoader(join(PROJECT_DIR, "templates", "PyPlex")),`
 
-Delete the file webinterface.pyc located in the same path. '/usr/share/pyload/module/web' (in my case it's /home/user/.pyload/module/web)
+Delete the file webinterface.pyc located in the same path.
  
-Copy all of the files from this repro from `template` folder to `/usr/share/pyload/module/web/templates`
-Copy all of the files from this repro from `media` folder to `/usr/share/pyload/module/web/media`
+Copy all of the files from this repro from `template` folder to `/usr/share/pyload/module/web/templates` 
+
+Copy the files from this repro from `media` folder to `/usr/share/pyload/module/web/media`
 
 Restart your pyload Server
 
