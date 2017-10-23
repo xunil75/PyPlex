@@ -1,0 +1,290 @@
+{% extends 'PyPlex/base.html' %}
+
+{% block head %}
+    <script type="text/javascript" src="/media/js/PyPlex/admin.js"></script>
+{% endblock %}
+
+
+{% block title %}{{ _("Administrate") }} - {{ super() }} {% endblock %}
+{% block subtitle %}{{ _("Administrate") }}{% endblock %}
+
+{% block content %}
+
+<style>
+option:checked, option:focus {
+  background: #72716f linear-gradient(0deg, #72716f 0%, #72716f 100%);
+}
+
+select { 
+  font-size:10px;
+}
+
+textarea.form-control {
+    height: 34px;
+    margin: 5px 0 5px 0;
+    color: #fff;
+    border: 0px solid #444;
+    background: #555;
+    padding: 6px 12px;
+    background-color: #555;
+    border-radius: 3px;
+    transition: background-color .3s;
+    resize: none;
+}
+textarea.form-control:focus {
+    outline: 0;
+    color: #555;
+    background-color: #fff;
+    transition: background-color .3s;
+}
+
+.form-control {
+    height: 34px;
+    margin: 5px 0 5px 0;
+    color: #fff;
+    border: 0px solid #444;
+    background: #555;
+    padding: 6px 12px;
+    background-color: #555;
+    border-radius: 3px;
+    transition: background-color .3s;
+    resize: none;
+}
+.form-control:focus {
+    outline: 0;
+    color: #555;
+    background-color: #fff;
+    transition: background-color .3s;
+}
+
+.btn-bright {
+  color: #fff;
+  background-color: #cc7b19;
+  box-shadow: inset 0 1px 0 #e7993b;
+}
+.btn-bright:focus,
+.btn-bright.focus {
+  color: #fff;
+  background-color: #eb8600;
+}
+.btn-bright:hover {
+  color: #fff;
+  background-color: #e59029;
+  box-shadow: inset 0 1px 0 #ebac60;
+}
+.btn-bright:active,
+.btn-bright.active,
+.open > .dropdown-toggle.btn-bright {
+  color: #fff;
+  background-color: #cc7b19;
+  box-shadow: inset 0 1px 0 #e7993b;
+}
+.btn-bright:active:hover,
+.btn-bright.active:hover,
+.open > .dropdown-toggle.btn-bright:hover,
+.btn-bright:active:focus,
+.btn-bright.active:focus,
+.open > .dropdown-toggle.btn-bright:focus,
+.btn-bright:active.focus,
+.btn-bright.active.focus,
+.open > .dropdown-toggle.btn-bright.focus {
+  color: #fff;
+  background-color: #cc7b19;
+  box-shadow: inset 0 1px 0 #e7993b;
+}
+.btn-bright:active,
+.btn-bright.active,
+.open > .dropdown-toggle.btn-bright {
+  background-image: none;
+}
+.btn-bright.disabled,
+.btn-bright[disabled],
+fieldset[disabled] .btn-bright,
+.btn-bright.disabled:hover,
+.btn-bright[disabled]:hover,
+fieldset[disabled] .btn-bright:hover,
+.btn-bright.disabled:focus,
+.btn-bright[disabled]:focus,
+fieldset[disabled] .btn-bright:focus,
+.btn-bright.disabled.focus,
+.btn-bright[disabled].focus,
+fieldset[disabled] .btn-bright.focus,
+.btn-bright.disabled:active,
+.btn-bright[disabled]:active,
+fieldset[disabled] .btn-bright:active,
+.btn-bright.disabled.active,
+.btn-bright[disabled].active,
+fieldset[disabled] .btn-bright.active {
+  background-color: #cc7b19;
+  border-color: #b56d16;
+}
+.btn-bright .badge {
+  color: #fff;
+  background-color: #cc7b19;
+  box-shadow: inset 0 1px 0 #e7993b;
+}
+
+optgroup, select, textarea {
+    color: black;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 11px;
+    line-height: 1.42857143;
+    color: #fff;
+    background-color: #3b3b3b;
+    background-image: none;
+    border: 0px solid #ccc;
+    border-radius: 4px;
+}
+select:focus {
+  border: none !important;
+  outline: none;
+}
+
+.modal-body {
+background-color: #282828;
+
+}
+
+.modal-content {
+background-color: #282828;
+
+}
+
+.modal-header {
+border-bottom: 1px solid #212121;
+}
+
+</style>
+
+
+
+
+    <div class="btn-group">
+    <button id="quit-pyload" class="btn btn-danger" data-toggle="modal" data-target="#quit_box"><span class="glyphicon glyphicon-off"></span> {{_("Quit pyLoad")}}</button>
+    <button id="restart-pyload" class="btn btn-success" data-toggle="modal" data-target="#restart_box"><span class="glyphicon glyphicon-repeat"></span> {{_("Restart pyLoad")}}</button>
+</div>
+    <br>
+    <br>
+
+
+<div class="col-sm-4 col-sm-offset-4">
+<div class="alert alert-danger" style="padding:8px;">
+<p class="align-middle">{{ _("To add user or change passwords use:") }} <b>python pyLoadCore.py -u</b><br></p>
+<p class="align-middle">{{ _("Important: Admin user have always all permissions!") }}</p>
+</div>
+</div>
+
+
+<br>
+<br>
+    <form action="" method="POST">
+        <table class="settable table" style="width:50%;">
+            <thead>
+            <tr>
+            <th>
+                {{ _("Name") }}
+            </th>
+            <th>
+                {{ _("Change Password") }}
+            </th>
+            <th>
+                {{ _("Admin") }}
+            </th>
+            <th>
+                {{ _("Permissions") }}
+            </th>
+            </tr>
+            </thead>
+
+            {% for name, data in users.iteritems() %}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td><div class="change_password btn btn-success btn-xs" data-toggle="modal" data-target="#password_box" id="change_pw|{{name}}"><span class="glyphicon glyphicon-pencil"></span> {{ _("change") }}</div></td>
+                    <td><input name="{{ name }}|admin" type="checkbox" {% if data.perms.admin %} checked="True" {% endif %}></td>
+                    <td>
+                        <select multiple="multiple" size="{{ permlist|length }}" name="{{ name }}|perms">
+                            {% for perm in permlist %}
+                            {% if data.perms|getitem(perm) %}
+                                <option selected="selected">{{ perm }}</option>
+                            {% else %}
+                                <option>{{ perm }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+            {% endfor %}
+
+
+        </table>
+
+        <button class="btn btn-bright" type="submit">{{ _("Submit") }}</button>
+    </form>
+{% endblock %}
+{% block dialog %}
+<div id="restart_box" class="modal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px" >{{_('Are you sure you want to restart pyLoad?')}}</div>
+        <div class="modal-body" style="margin-bottom: 30px;">
+            <button class="btn btn-success" id="restart_button" type="submit" style="float: right">{{ _("Submit") }}</button>
+            <button class="btn btn-warning" data-dismiss="modal" id="restart_reset" style="margin-right: 5px; float: right" type="reset">{{ _("Reset") }}</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="quit_box" class="modal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px" >{{_('You are really sure you want to quit pyLoad?')}}</div>
+        <div class="modal-body" style="margin-bottom: 30px;">
+            <button class="btn btn-success" id="quit_button" type="submit" style="float: right">{{ _("Submit") }}</button>
+            <button class="btn btn-warning" data-dismiss="modal" id="quit_reset" style="margin-right: 5px; float: right" type="reset">{{ _("Reset") }}</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="password_box" class="modal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px" >{{ _("Change Password") }}</div>
+        <div class="modal-body" style="margin-bottom: 30px;">
+        <form id="password_form" class="from-group" action="/json/change_password" method="POST" enctype="multipart/form-data" style="margin-bottom: 40px;">
+          <p>{{ _("Enter your current and desired Password.") }}</p>
+          <div class="form-group">
+            <label for="user_login">{{ _("User") }}</label>
+            <input class="form-control" id="user_login" name="user_login" type="text"/>
+            <p class="help-block">{{ _("Your username.") }}</p>
+          </div>
+          <div class="form-group">
+              <label for="login_current_password">{{ _("Current password") }}</label>
+              <input class="form-control" id="login_current_password" name="login_current_password" type="password"/>
+              <p class="help-block">{{ _("The password for this account.") }}</p>
+          </div>
+          <div class="form-group">
+                <label for="login_new_password">{{ _("New password") }}</label>
+                <input class="form-control" id="login_new_password" name="login_new_password" type="password"/>
+                <p class="help-block">{{ _("The new password.") }}</p>
+          </div>
+          <div class="form-group">
+                <label for="login_new_password2">{{ _("New password (repeat)") }}</label>
+                <input class="form-control" id="login_new_password2" name="login_new_password2" type="password" />
+                <p class="help-block">{{ _("Please repeat the new password.") }}</p>
+          </div>
+          <button class="btn btn-success" id="login_password_button" type="submit" style="float: right">{{ _("Submit") }}</button>
+          <button class="btn btn-warning" id="login_password_reset" data-dismiss="modal" style="margin-right: 5px; float: right" type="reset">{{ _("Reset") }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,325 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="stylesheet" type="text/css" href="/media/PyPlex/css/window.css"/>
+<link rel="stylesheet" href="/media/PyPlex/css/bootstrap.min.css">
+<link rel="stylesheet" href="/media/PyPlex/css/styles.css">
+
+<script type="text/javascript" src="/media/js/PyPlex/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="/media/js/PyPlex/base.js"></script>
+<script type="text/javascript" src="/media/js/PyPlex/jquery-bootstrap-purr.min.js"></script>
+<script type="text/javascript" src="/media/js/PyPlex/bootstrap.min.js"></script>
+
+<style>
+	body {
+		color: #eee !important;
+		background-color: #1f1f1f;
+	}
+	
+.btn-dark {
+    color: #d7d7d7;
+    background-color: #282828;
+    border-color: transparent;
+}
+.btn-dark:focus,
+.btn-dark.focus {
+  color: #d7d7d7;
+  background-color: #3B3B3B;
+}
+.btn-dark:hover {
+  color: #fff;
+  background-color: #333;
+  border-color: #444;
+}
+.btn-dark:active,
+.btn-dark.active,
+.open > .dropdown-toggle.btn-dark {
+  color: #fff;
+  background-color: #333;
+  border-color: #444;
+}
+.btn-dark:active:hover,
+.btn-dark.active:hover,
+.open > .dropdown-toggle.btn-dark:hover,
+.btn-dark:active:focus,
+.btn-dark.active:focus,
+.open > .dropdown-toggle.btn-dark:focus,
+.btn-dark:active.focus,
+.btn-dark.active.focus,
+.open > .dropdown-toggle.btn-dark.focus {
+  color: #fff;
+  background-color: #333;
+}
+.btn-dark:active,
+.btn-dark.active,
+.open > .dropdown-toggle.btn-dark {
+  background-image: none;
+}
+.btn-dark.disabled,
+.btn-dark[disabled],
+fieldset[disabled] .btn-dark,
+.btn-dark.disabled:hover,
+.btn-dark[disabled]:hover,
+fieldset[disabled] .btn-dark:hover,
+.btn-dark.disabled:focus,
+.btn-dark[disabled]:focus,
+fieldset[disabled] .btn-dark:focus,
+.btn-dark.disabled.focus,
+.btn-dark[disabled].focus,
+fieldset[disabled] .btn-dark.focus,
+.btn-dark.disabled:active,
+.btn-dark[disabled]:active,
+fieldset[disabled] .btn-dark:active,
+.btn-dark.disabled.active,
+.btn-dark[disabled].active,
+fieldset[disabled] .btn-dark.active {
+  background-color: #333;
+  color: #aaa;
+}
+.btn-dark .badge {
+  color: #e5e5e5;
+  background-color: #3B3B3B;
+}
+
+optgroup, select, textarea {
+   color: black;
+   display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+textarea.form-control {
+    height: 34px;
+    margin: 5px 0 5px 0;
+    color: #fff;
+    border: 0px solid #444;
+    background: #555;
+    padding: 6px 12px;
+    background-color: #555;
+    border-radius: 3px;
+    transition: background-color .3s;
+    resize: none;
+}
+textarea.form-control:focus {
+    outline: 0;
+    color: #555;
+    background-color: #fff;
+    transition: background-color .3s;
+}
+
+.form-control {
+    height: 34px;
+    margin: 5px 0 5px 0;
+    color: #fff;
+    border: 0px solid #444;
+    background: #555;
+    padding: 6px 12px;
+    background-color: #555;
+    border-radius: 3px;
+    transition: background-color .3s;
+    resize: none;
+}
+
+.form-control:focus {
+    outline: 0;
+    color: #555;
+    background-color: #fff;
+    transition: background-color .3s;
+}
+
+.navoben {
+  background-color: #000;
+}
+.nav > li.selected > a > span, .nav > li.selected > a:hover > span, .nav > li.selected > a:focus > span , .nav > li.selected > a {
+  background-color: #282828;
+  color: #f9be03;
+}
+</style>
+
+<title>{% block title %}pyLoad {{_("Webinterface")}}{% endblock %}</title>
+
+{% block head %}
+{% endblock %}
+</head>
+<body>
+<a class="anchor" name="top" id="top"></a>
+
+<div id="head-panel">
+  <div id="head-search-and-login">
+    {% block headpanel %}
+      {% if user.is_authenticated %}
+        {% if update %}
+        <span>
+        <span style="font-weight: bold; margin: 0 2px 0 2px;">{{_("pyLoad Update available!")}}</span>
+        </span>
+        {% endif %}
+        {% if plugins %}
+        <span>
+        <span style="font-weight: bold; margin: 0 2px 0 2px;">{{_("Plugins updated, please restart!")}}</span>
+        </span>
+        {% endif %}
+      {% endif %}
+    {% endblock %}
+  </div>
+
+  <nav class="navbar navbar-inverse navoben">
+    <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="#"><img id="head-logo" src="/media/PyPlex/img/pyload-logo.png" alt="pyLoad" style="height:30px;"/></a>
+      </div>
+	  <a href="/"></a>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          {% macro selected(name, right=False) -%}
+            {% if name in url -%}class="{% if right -%}right {% endif %}selected"{%- endif %}
+            {% if not name in url and right -%}class="right"{%- endif %}
+          {%- endmacro %}
+
+		{% block menu %}
+         {% if user.is_authenticated %}
+          <li>
+              <a href="/" title=""><span class="glyphicon glyphicon-home"></span><span class="hidden-sm"> {{_("Home")}}</span></a>
+          </li>
+          <li {{ selected('queue') }}>
+              <a href="/queue/" title=""><span class="glyphicon glyphicon-tasks"></span><span class="hidden-sm"> {{_("Queue")}}</span></a>
+          </li>
+          <li {{ selected('collector') }}>
+              <a href="/collector/" title=""><span class="glyphicon glyphicon-magnet"></span><span class="hidden-sm"> {{_("Collector")}}</span></a>
+          </li>
+          <li {{ selected('downloads') }}>
+              <a href="/downloads/" title=""> <span class="glyphicon glyphicon-download"></span><span class="hidden-sm"> {{_("Downloads")}}</span></a>
+          </li>
+    {#	  <li {{ selected('filemanager') }}>#}
+    {#	      <a href="/filemanager/" title=""><span class="glyphicon glyphicon-magnet"></span><span class="hidden-sm"> {{_("FileManager")}}</span></a>#}
+    {#	  </li>#}
+          <li {{ selected('logs', True) }}>
+              <a href="/logs/"  class="action index" accesskey="x" rel="nofollow"><span class="glyphicon glyphicon-list"></span><span class="hidden-sm"> {{_("Logs")}}</span></a>
+          </li>
+          <li {{ selected('settings', True) }}>
+              <a href="/settings/"  class="action index" accesskey="x" rel="nofollow"><span class="glyphicon glyphicon-wrench"></span><span class="hidden-sm"> {{_("Config")}}</span></a>
+          </li>
+        {% if user.is_admin %}
+          <li>
+              <a href="/admin" class="action profile" rel="nofollow"><span class="glyphicon glyphicon-cog"></span><span class="hidden-sm">  {{_("Administration")}}</span></a>
+          </li>
+        {% endif %}         
+         {% endif %}
+		{% endblock %}
+
+        </ul>
+        {% if user.is_authenticated %}
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout"  class="action logout" rel="nofollow"><span class="glyphicon glyphicon-log-out"></span><span class="hidden-sm hidden-md">  {{_("Logout")}}</span></a></li>
+            <li><a href="/info"  class="action info" rel="nofollow"><span class="glyphicon glyphicon-user"></span><span class="hidden-sm"> {{user.name}}</span></a></li>
+          </ul>
+        {% endif %}        
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div style="clear:both;"></div>
+</div>
+
+{% if perms.STATUS %}
+<div class="btn-group btn-group-sm col-xs-12 col-sm-3 col-md-3 col-lg-3" role="group" aria-label="...">
+  <button id="action_play" class="btn btn-danger col-xs-2" href="#" title="{{_("Play")}}"><span class="glyphicon glyphicon-play"></span>&nbsp;</button>
+  <button id="action_stop" type="button" class="btn btn-danger col-xs-2" title="{{_("Stop")}}"><span class="glyphicon glyphicon-stop"></span>&nbsp;</button>
+  <button id="action_cancel" type="button" class="btn btn-danger col-xs-2"><span class="glyphicon glyphicon-remove" title="{{_("Cancel")}}"></span>&nbsp;</button>
+  <button id="action_add" data-toggle="modal" data-target="#add_box" type="button" class="btn btn-danger col-xs-2" title="{{_("Add")}}"><span class="glyphicon glyphicon-plus"></span>&nbsp;</button>
+  <!-- <div class="col-xs-12" /> -->
+  <button id="del_finished" type="button" class="btn btn-danger col-xs-2" title="{{_("Delete Finished")}}"><span class="glyphicon glyphicon-compressed"></span>&nbsp;</button>
+  <button id="restart_failed" type="button" class="btn btn-danger col-xs-2" title="{{_("Restart Failed")}}"><span class="glyphicon glyphicon-refresh"></span>&nbsp;</button>
+</div>
+
+
+{% endif %}
+<span id="cap_info" class="col-xs-12 col-sm-auto" style="display: {% if captcha %}inline{%else%}none{% endif %};margin-top:-2px;">
+<button id="action_add" class="btn btn-default col-xs-12 col-sm-auto" data-toggle="modal" data-target="#cap_box"><span  class="glyphicon glyphicon-barcode"></span> {{_("Captcha waiting")}}</button>
+</span>
+
+
+{% if perms.LIST %}
+
+<div class="btn-group btn-group-sm col-xs-12 col-sm-auto" role="group" aria-label="..." style="float:right;">
+  <button class="btn btn-dark col-xs-6 col-sm-auto"><span class="hidden-sm">{{_("Download:")}}</span><span class="glyphicon glyphicon-download hidden-xs hidden-md hidden-lg"></span> <span id="time"  class="label label-{% if status.download %}success{% else %}danger{% endif %}">{% if status.download %}{{_("on")}}{% else %}{{_("off")}}{% endif %}</span></button>
+  <button type="button" class="btn btn-dark col-xs-6 col-sm-auto"><span class="hidden-sm">{{_("Reconnect:")}}</span><span class="glyphicon glyphicon-refresh hidden-xs hidden-md hidden-lg"></span> <span id="reconnect" class="label label-{% if status.reconnect %}success{% else %}danger{% endif %}">{% if status.reconnect %}{{_("on")}}{% else %}{{_("off")}}{% endif %}</span></button>
+  <button type="button" class="btn btn-dark col-xs-6 col-sm-auto"><span class="action backlink"><span class="hidden-xs hidden-sm">{{_("Speed:")}} </span><b id="speed">{{ status.speed }}</b></span></button>
+  <button type="button" class="btn btn-dark col-xs-6 col-sm-auto"><span class="action cog">{{_("Active:")}} <b id="aktiv" title="{{_("Active")}}">{{ status.active }}</b> / <b id="aktiv_from" title="{{_("Queued")}}">{{ status.queue }}</b> / <b id="aktiv_total" title="{{_("Total")}}">{{ status.total }}</b></span></button>
+</div>
+
+{% endif %}
+
+{% block pageactions %}
+{% endblock %}
+<br class="clear" />
+
+<div id="body-wrapper" class="dokuwiki">
+
+<div id="content" style="width: 100%; padding-left:10px; margin-bottom: 60px; padding-right:10px;" lang="en" dir="ltr">
+
+<h3>{% block subtitle %}{{_(" ")}}{% endblock %}</h3>
+
+{% block statusbar %}
+{% endblock %}
+{% for message in messages %}
+	<b><p>{{message}}</p></b>
+{% endfor %}
+
+<div id="load-indicator" style="opacity: 0; float: right; margin-top: -10px;">
+    <img src="/media/PyPlex/img/ajax-loader.gif" alt="" style="padding-right: 5px"/>
+    {{_("loading")}}
+</div>
+
+{% block content %}
+{% endblock content %}
+
+	<hr style="clear: both;" />
+
+
+ </div>
+    <div id="foot" class="navbar navbar-fixed-bottom navbar-inverse" style="width: 100%; border: 0px solid #00000; padding-left: 10px; margin-right:10px; text-align:center;">Theme: PyPlex by <a href="https://github.com/xunil75" target="_blank">Marco Fernandes</a> Version 0.1.1 improved by Dogan Bagci<br />&copy; 2008-2017 pyLoad Team
+      <a href="#top" class="action top" accesskey="x"><span>{{_("Back to top")}}</span></a><br />
+    </div>
+
+</div>
+
+
+<div style="display: none;">
+    {% block hidden %}
+    {% endblock %}
+</div>
+{% block dialog %}
+{% endblock %}
+{% include "PyPlex/window.html" %}
+{% include "PyPlex/captcha.html" %}
+<noscript><h1>Enable JavaScript to use the webinterface.</h1></noscript>
+
+</body>
+</html>
+

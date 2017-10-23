@@ -1,0 +1,367 @@
+{% extends 'PyPlex/base.html' %}
+
+{% block title %}{{ _("Config") }} - {{ super() }} {% endblock %}
+{% block subtitle %}{{ _("Config") }}{% endblock %}
+
+{% block head %}
+    <script type="text/javascript" src="/media/js/PyPlex/settings.js"></script>
+
+{% endblock %}
+
+{% block content %}
+<ul id="toptabs" class="nav nav-tabs left col-xs-12 nav-settings">
+  <li class="active"><a data-toggle="tab" href="#home">{{ _("General") }}</a></li>
+  <li><a data-toggle="tab" href="#plugins">{{ _("Plugins") }}</a></li>
+  <li><a data-toggle="tab" href="#accounts">{{ _("Accounts") }}</a></li>
+</ul>
+
+<style>
+
+.btn-form {
+    padding: 4px 12px;
+    margin: 5px 0 5px 0;
+    font-size: 14px;
+    font-weight: normal;
+    height: 32px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+      touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+    background-image: none;
+    background-color: #3B3B3B;
+    color: #e5e5e5;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    outline:0px !important;
+    -webkit-appearance:none;
+}
+.btn-form:hover {
+    color: #fff;
+    background-color: #333;
+}
+.btn-form:focus {
+    color: #fff;
+}
+
+.btn-bright {
+  color: #fff;
+  background-color: #cc7b19;
+  box-shadow: inset 0 1px 0 #e7993b;
+}
+.btn-bright:focus,
+.btn-bright.focus {
+  color: #fff;
+  background-color: #eb8600;
+}
+.btn-bright:hover {
+  color: #fff;
+  background-color: #e59029;
+  box-shadow: inset 0 1px 0 #ebac60;
+}
+.btn-bright:active,
+.btn-bright.active,
+.open > .dropdown-toggle.btn-bright {
+  color: #fff;
+  background-color: #cc7b19;
+  box-shadow: inset 0 1px 0 #e7993b;
+}
+.btn-bright:active:hover,
+.btn-bright.active:hover,
+.open > .dropdown-toggle.btn-bright:hover,
+.btn-bright:active:focus,
+.btn-bright.active:focus,
+.open > .dropdown-toggle.btn-bright:focus,
+.btn-bright:active.focus,
+.btn-bright.active.focus,
+.open > .dropdown-toggle.btn-bright.focus {
+  color: #fff;
+  background-color: #cc7b19;
+  box-shadow: inset 0 1px 0 #e7993b;
+}
+.btn-bright:active,
+.btn-bright.active,
+.open > .dropdown-toggle.btn-bright {
+  background-image: none;
+}
+.btn-bright.disabled,
+.btn-bright[disabled],
+fieldset[disabled] .btn-bright,
+.btn-bright.disabled:hover,
+.btn-bright[disabled]:hover,
+fieldset[disabled] .btn-bright:hover,
+.btn-bright.disabled:focus,
+.btn-bright[disabled]:focus,
+fieldset[disabled] .btn-bright:focus,
+.btn-bright.disabled.focus,
+.btn-bright[disabled].focus,
+fieldset[disabled] .btn-bright.focus,
+.btn-bright.disabled:active,
+.btn-bright[disabled]:active,
+fieldset[disabled] .btn-bright:active,
+.btn-bright.disabled.active,
+.btn-bright[disabled].active,
+fieldset[disabled] .btn-bright.active {
+  background-color: #cc7b19;
+  border-color: #b56d16;
+}
+.btn-bright .badge {
+  color: #fff;
+  background-color: #cc7b19;
+  box-shadow: inset 0 1px 0 #e7993b;
+}
+
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+    margin: 0px 0 5px 0;
+    color: #fff;
+    border: 0px solid #444;
+    background: #555;
+    height: 34px;
+    padding: 6px 12px;
+    background-color: #555;
+    border-radius: 3px;
+    transition: background-color .3s;
+}
+textarea.form-control {
+    height: 34px;
+    margin: 5px 0 5px 0;
+    color: #fff;
+    border: 0px solid #444;
+    background: #555;
+    padding: 6px 12px;
+    background-color: #555;
+    border-radius: 3px;
+    transition: background-color .3s;
+    resize: none;
+}
+textarea.form-control:focus {
+    outline: 0;
+    color: #555;
+    background-color: #fff;
+    transition: background-color .3s;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+    outline: 0;
+    outline: thin dotted \9;
+    color: #555;
+    background-color: #fff;
+    transition: background-color .3s;
+}
+
+.nav-settings > .active > a, .nav-settings > .active > a:hover, .nav-settings > .active > a:focus {
+    color: #f9be03;
+    background-color: #2f2f2f;
+}
+
+.modal-content {
+background-color: #282828;
+
+}
+
+.nav {
+    margin-bottom: -2px;
+}
+
+.panel {
+background-color: #2f2f2f;
+}
+
+</style>
+
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+        <div class="panel panel-default col-xs-6 col-sm-4 col-md-3" style="float:left;">
+          <div class="panel-body">
+            <ul id="general-menu" style="float: left; height: 600px; overflow: auto; overflow-x: hidden; width: 100%; padding-left: 0;">
+                {% for entry,name in conf.general %}
+                    <nobr>
+                        <li style="list-style-type: none; cursor: pointer; margin-top: 10px;" id="general|{{ entry }}">{{ name }}</li>
+                    </nobr>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <form style="overflow: auto;" class="col-xs-6 col-md-5" id="general_form" action="" method="POST" autocomplete="off">
+        <span id="general_form_content">
+            <br>
+                <h3>{{ _("Choose a section from the menu") }}</h3>
+            <br>
+        </span>
+
+      <input class="btn btn-bright" style="float:right; margin-right: 10px;" id="general_submit"  type="submit" value="{{_("Submit")}}"/>
+    </form>
+  </div>
+  <div id="plugins" class="tab-pane fade">
+    <div class="panel panel-default col-xs-6 col-sm-4 col-md-3" style="float:left;">
+        <div class="panel-body">
+            <ul id="plugin-menu" style="float: left; height: 600px; overflow: auto; overflow-x: hidden; width: 100%; padding-left: 0;">
+                {% for entry,name in conf.plugin %}
+                    <nobr>
+                        <li style="list-style-type: none; cursor: pointer; margin-top: 10px;" id="plugin|{{ entry }}">{{ name }}</li>
+                    </nobr>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <form class="col-xs-6 col-md-5" id="plugin_form" action="" method="POST" autocomplete="off">
+       <span id="plugin_form_content" style="position: static;">
+            <br>
+            <h3>{{ _("Choose a section from the menu") }}</h3>
+            <br>
+       </span>
+       <input class="btn btn-bright" style="float:right; margin-right: 10px;" id="plugin_submit" type="submit" value="{{_("Submit")}}"/>
+    </form>
+  </div>
+  <div id="accounts" class="tab-pane fade">
+   <form id="account_form" action="/json/update_accounts" method="POST">
+     <table class="settable wide table">
+        <thead>
+        <tr>
+            <th>{{ _("Plugin") }}</th>
+            <th>{{ _("Name") }}</th>
+            <th>{{ _("Password") }}</th>
+            <th>{{ _("Status") }}</th>
+            <th>{{ _("Premium") }}</th>
+            <th>{{ _("Valid until") }}</th>
+            <th>{{ _("Traffic left") }}</th>
+            <th>{{ _("Time") }}</th>
+            <th>{{ _("Max Parallel") }}</th>
+            <th>{{ _("Delete?") }}</th>
+        </tr>
+        </thead>
+
+        {% for account in conf.accs %}
+            {% set plugin = account.type %}
+                   <tr>
+                        <td>
+                            <span style="padding:5px">{{ plugin }}</span>
+                        </td>
+
+                       <td><label for="{{plugin}}|password;{{account.login}}"
+                                  style="font-size: 14px; font-weight: 400; color:#999;">{{ account.login }}</label></td>
+                       <td>
+                           <input id="{{plugin}}|password;{{account.login}}"
+                                  name="{{plugin}}|password;{{account.login}}"
+                                  type="password" value="{{account.password}}" size="12"/>
+                       </td>
+                       <td>
+                           {% if account.valid %}
+                               <span style="font-weight: bold; color: #006400;">
+                               {{ _("valid") }}
+                           {% else %}
+                               <span style="font-weight: bold; color: #8b0000;">
+                               {{ _("not valid") }}
+                           {% endif %}
+                           </span>
+                       </td>
+                      <td>
+                           {% if account.premium %}
+                               <span style="font-weight: bold; color: #006400;">
+                               {{ _("yes") }}
+                           {% else %}
+                               <span style="font-weight: bold; color: #8b0000;">
+                               {{ _("no") }}
+                           {% endif %}
+                           </span>
+                       </td>
+                       <td>
+               <span style="font-weight: bold;">
+               {{ account.validuntil }}
+               </span>
+                       </td>
+                       <td>
+               <span style="font-weight: bold;">
+               {{ account.trafficleft }}
+               </span>
+                       </td>
+                       <td>
+                           <input id="{{plugin}}|time;{{account.login}}"
+                                  name="{{plugin}}|time;{{account.login}}" type="text"
+                                  size="7" value="{{account.time}}"/>
+                       </td>
+                       <td>
+                           <input id="{{plugin}}|limitdl;{{account.login}}"
+                                  name="{{plugin}}|limitdl;{{account.login}}" type="text"
+                                  size="2" value="{{account.limitdl}}"/>
+                       </td>
+                       <td>
+                           <input id="{{plugin}}|delete;{{account.login}}"
+                                  name="{{plugin}}|delete;{{account.login}}" type="checkbox"
+                                  value="True"/>
+                       </td>
+                   </tr>
+            {% endfor %}
+     </table>
+       <button id="account_add" data-toggle="modal" data-target="#account_box" style="margin-left: 5px;" class="btn btn-success">&nbsp;<span class="glyphicon glyphicon-plus"></span></button>
+     <button id="account_submit" type="submit" class="btn btn-bright" >{{_("Submit")}}</button>
+   </form>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
+{% block dialog %}
+<div id="account_box" class="modal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px" > {{_("Add Account")}} </div>
+        <div class="modal-body" style="margin-bottom: 30px;">
+        <form id="add_account_form" action="/json/add_account" method="POST" enctype="multipart/form-data" style="margin-bottom: 40px;">
+            <p>{{_("Enter your account data to use premium features.")}}</p>
+            <div class="form-group">
+                <label for="account_login">{{_("Login")}}</label>
+                <input class="form-control" id="account_login" name="account_login" type="text" />
+                <p >{{_("Your username.")}}</p>
+            </div>
+            <div class="form-group">
+                <label for="account_password">{{_("Password")}}</label>
+                <input class="form-control" id="account_password" name="account_password" type="password" size="20" />
+                <p >{{_("The password for this account.")}}</p>
+            </div>
+            <div class="form-group">
+                <label for="account_type">{{_("Type")}}</label>
+                <p>{{_("Choose the hoster for your account.")}}</p>
+            </div>
+            <div class="form-group">
+                <select name=account_type id="account_type">
+                    {% for type in types|sort %}
+                        <option value="{{ type }}">{{ type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="btn btn-success" style="float: right; margin-left: 5px;" id="account_add_button" type="submit">{{_("Add")}}</button>
+            <button class="btn btn-warning" style="float: right;" data-dismiss="modal" id="account_reset" type="reset">{{_("Reset")}}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
