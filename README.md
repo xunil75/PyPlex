@@ -5,6 +5,30 @@ This Theme it's inspired by PlexPy (https://github.com/JonnyWong16/plexpy) A Pyt
 
 I'm not yet satisfied with the look and feel and that's why I didn't release it yet. I did not finish the login and logout page yet but I'm getting there very soon.
 
+## Installation
+
+Stop your pyload Server
+
+navigate to '/usr/share/pyload/module/web'
+Open the file webinterface.py for editing
+Search for the following line in the file:
+`FileSystemLoader(join(PROJECT_DIR, "templates", "default")),`
+
+Insert the following lines of code right after:
+
+`"PyPlex": FileSystemLoader(join(PROJECT_DIR, "templates", "PyPlex")),`
+
+Delete the file webinterface.pyc in the same folder.
+ 
+Copy all of the files from this repro from `template` folder to `/usr/share/pyload/module/web/templates`
+Copy all of the files from this repro from `media` folder to `/usr/share/pyload/module/web/media`
+
+Restart your pyload Server
+
+Log in to the webinterface. Navigate to settings open the menu item webinterface. Enter the name of the new theme: "PyPlex" in the template field.
+
+Restart your pyload server
+
 For now these are some screenshots on how it looks now:
 
 Login Page:
