@@ -52,10 +52,10 @@ hr {
 /* Aqua Style */
 .progressani.aqua .progress-bar {
 	background-color: #0632f7;
-	background-image: -moz-linear-gradient(left, #c8d1fd 0%, #0632f7 100%);
-	background-image: -webkit-linear-gradient(left, #c8d1fd 0%,#0632f7 100%);
-	background-image: -o-linear-gradient(left, #c8d1fd 0%,#0632f7 100%);
-	background-image: -ms-linear-gradient(left, #c8d1fd 0%,#0632f7 100%);
+	background-image: -moz-linear-gradient(left, #c8d1fd 0%, #0632f7 100%); /* FF3.6+ */
+	background-image: -webkit-linear-gradient(left, #c8d1fd 0%,#0632f7 100%); /* Chrome10+,Safari5.1+ */
+	background-image: -o-linear-gradient(left, #c8d1fd 0%,#0632f7 100%); /* Chrome10+,Safari5.1+ */
+	background-image: -ms-linear-gradient(left, #c8d1fd 0%,#0632f7 100%); /* IE10+ */
 	background-image: linear-gradient(to right, #c8d1fd 0%,#0632f7 100%);
     background-size: 100% 10px;
 }
