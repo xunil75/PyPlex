@@ -1,6 +1,9 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b33743975ac9430aae4da10aa107c8a7)](https://www.codacy.com/app/xunil75/PyPlex?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xunil75/PyPlex&amp;utm_campaign=Badge_Grade)
 
 # PyPlex
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b33743975ac9430aae4da10aa107c8a7)](https://www.codacy.com/app/xunil75/PyPlex?utm_source=github.com&utm_medium=referral&utm_content=xunil75/PyPlex&utm_campaign=badger)
+
 PyPlex Theme for Pyload
 
 After creating a Theme for Ombi https://github.com/tidusjar/Ombi (former Plex Requests), I've decided to create a Theme as well for Pyload. I've used the Pyload "Next" theme as a base and the modified "Next" theme from https://github.com/OzzieIsaacs/pyload-NextTheme
