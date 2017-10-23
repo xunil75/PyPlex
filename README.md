@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b33743975ac9430aae4da10aa107c8a7)](https://www.codacy.com/app/xunil75/PyPlex?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xunil75/PyPlex&amp;utm_campaign=Badge_Grade)
+
 # PyPlex
 PyPlex Theme for Pyload
 
