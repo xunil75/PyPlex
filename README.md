@@ -7,6 +7,10 @@ I'm not yet satisfied with the look and feel and that's why I didn't release it 
 
 For now these are some screenshots on how it looks now:
 
+Login Page:
+
+![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Login.jpg)
+
 ![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.38.03.png)
 
 ![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Screen%20Shot%202017-10-20%20at%2017.38.27.png)
