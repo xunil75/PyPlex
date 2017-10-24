@@ -167,6 +167,7 @@ function LinkEntry(id){
             $(progress).html('');
             $(progress).addClass('progress');
             $(progress).css('margin-bottom','0px');
+            $(progress).css('margin-left', '4px');
             //$(progress).addClass('progress-bar progress-bar-striped active');
             //$(progress).data('role', 'progressbar');
             //$(progress).data('aria-valuenow', '0');
