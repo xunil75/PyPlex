@@ -1,29 +1,44 @@
-# PyPlex
+PyPlex
+=========
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b33743975ac9430aae4da10aa107c8a7)](https://www.codacy.com/app/xunil75/PyPlex?utm_source=github.com&utm_medium=referral&utm_content=xunil75/PyPlex&utm_campaign=badger)
 
-PyPlex Theme for Pyload
+**PyPlex Theme for Pyload**
 
+Introduction
+----
 After creating a Theme for Ombi https://github.com/tidusjar/Ombi (former Plex Requests), I've decided to create a Theme as well for Pyload. I've used the Pyload "Next" theme as a base and the modified "Next" theme from https://github.com/OzzieIsaacs/pyload-NextTheme
 
 This Theme it's inspired by PlexPy (https://github.com/JonnyWong16/plexpy) A Python based monitoring and tracking tool for Plex Media Server. That's why I've choosen the name PyPlex for this theme.
 
-## Installation
-
+Install
+----
 Stop your pyload Server
 
+```sh
+sudo service pyload stop
+```
+
+Edit
+----
 navigate to '/usr/share/pyload/module/web' (in my case it's /home/user/.pyload/module/web)
 Open the file webinterface.py for editing
 
-`nano webinterface.py`
+```sh
+sudo nano webinterface.py
+```
 
 Search for the following line in the file:
 
-`FileSystemLoader(join(PROJECT_DIR, "templates", "default")),`
+```sh
+FileSystemLoader(join(PROJECT_DIR, "templates", "default")),
+```
 
-Insert the following lines of code right after:
+Insert the following line of code right after:
 
-`"PyPlex": FileSystemLoader(join(PROJECT_DIR, "templates", "PyPlex")),`
+```sh
+"PyPlex": FileSystemLoader(join(PROJECT_DIR, "templates", "PyPlex")),
+```
 
 Delete the file webinterface.pyc located in the same path.
  
