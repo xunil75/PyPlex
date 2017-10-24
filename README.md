@@ -9,7 +9,7 @@ Introduction
 ----
 After creating a Theme for Ombi https://github.com/tidusjar/Ombi (former Plex Requests), I've decided to create a Theme as well for Pyload. 
 
-I've used the Pyload "Next" theme as a base and the modified "Next" theme from https://github.com/OzzieIsaacs/pyload-NextTheme
+I've used the Pyload "Next" theme as a base and the modified "Next" theme from https://github.com/OzzieIsaacs/pyload-NextTheme for the development of the PyPlex
 
 This Theme it's inspired by PlexPy (https://github.com/JonnyWong16/plexpy) A Python based monitoring and tracking tool for Plex Media Server. That's why I've choosen the name PyPlex for this theme.
 
