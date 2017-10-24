@@ -41,19 +41,43 @@ Insert the following line of code right after:
 ```
 
 Delete the file webinterface.pyc located in the same path.
- 
-Copy all of the files from this repro from `template` folder to `/usr/share/pyload/module/web/templates` 
 
-Copy the files from this repro from `media` folder to `/usr/share/pyload/module/web/media`
+```sh
+sudo rm -rf webinterface.pyc
+```
+ 
+Copy the files from this repro from `template` folder to:
+
+```sh
+/usr/share/pyload/module/web/templates
+```
+
+Copy the files from this repro from `media` folder to:
+
+```sh
+/usr/share/pyload/module/web/media
+```
 
 Restart your pyload Server
 
-Login into the PyLoad webinterface. Navigate to the Config page, General Tab and click on "Webinterface". Enter the name of the new theme: "PyPlex" in the template field and hit "Submit"
+```sh
+sudo service pyload start
+```
 
+Configuration
+----
+Login into the PyLoad webinterface, navigate to the Config page, General Tab and click on "Webinterface". Enter the name of the new theme: "PyPlex" in the template field and hit "Submit"
+
+Finally
+----
 Restart your pyload server
 
-For now these are some screenshots on how it looks now:
+```sh
+sudo service pyload restart
+```
 
+Screenshots
+----
 Login Page:
 
 ![ScreenShot](https://github.com/xunil75/PyPlex/blob/master/Screenshots/Login.jpg)
