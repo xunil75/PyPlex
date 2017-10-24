@@ -1,3 +1,5 @@
+// @author Marco Fernandes
+// @author Dogan Bagci
 var em;
 //var operafix = (navigator.userAgent.toLowerCase().search("opera") >= 0);
 
