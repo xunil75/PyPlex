@@ -46,13 +46,13 @@ Delete the file webinterface.pyc located in the same path.
 sudo rm -rf webinterface.pyc
 ```
  
-Copy the files from this repro from `template` folder to:
+Copy the files inside the `template` folder from this repo to:
 
 ```sh
 /usr/share/pyload/module/web/templates
 ```
 
-Copy the files from this repro from `media` folder to:
+Copy the files inside the `media` folder from this repo to:
 
 ```sh
 /usr/share/pyload/module/web/media
