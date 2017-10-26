@@ -52,22 +52,26 @@ hr {
 /* Aqua Style */
 .progressani.aqua .progress-bar {
 	background-color: #0632f7;
+        background-image: -moz-linear-gradient(top,  #c8d1fd 0%, #0632f7 100%);
 	background-image: -moz-linear-gradient(left, #c8d1fd 0%, #0632f7 100%); /* FF3.6+ */
 	background-image: -webkit-linear-gradient(left, #c8d1fd 0%,#0632f7 100%); /* Chrome10+,Safari5.1+ */
-	background-image: -o-linear-gradient(left, #c8d1fd 0%,#0632f7 100%); /* Chrome10+,Safari5.1+ */
-	background-image: -ms-linear-gradient(left, #c8d1fd 0%,#0632f7 100%); /* IE10+ */
-	background-image: linear-gradient(to right, #c8d1fd 0%,#0632f7 100%);
+	background-image: -o-linear-gradient(left, #c8d1fd 0%, #0632f7 100%); /* Chrome10+,Safari5.1+ */
+	background-image: -ms-linear-gradient(left, #c8d1fd 0%, #0632f7 100%); /* IE10+ */
+	background-image: linear-gradient(to right, #c8d1fd 0%, #0632f7 100%);
+        background-image: -ms-linear-gradient(top,  #c8d1fd 0%, #0632f7 100%);
     background-size: 100% 10px;
 }
 
 /* Shine style */
 .progressani.shine .progress-bar {
 	background-color: #00BA0C;
+        background-image: -moz-linear-gradient(top,  #00BA0C 0%, #00BA0C 75%, #D7FFD1 80%, #00BA0C 85%, #00BA0C 100%);
 	background-image: -moz-linear-gradient(left, #00BA0C 0%, #00BA0C 75%, #D7FFD1 80%, #00BA0C 85%, #00BA0C 100%);
 	background-image: -webkit-linear-gradient(left, #00BA0C 0%,#00BA0C 75%,#D7FFD1 80%,#00BA0C 85%,#00BA0C 100%);
 	background-image: -o-linear-gradient(left, #00BA0C 0%,#00BA0C 75%,#D7FFD1 80%,#00BA0C 85%,#00BA0C 100%);
 	background-image: -ms-linear-gradient(left, #00BA0C 0%,#00BA0C 75%,#D7FFD1 80%,#00BA0C 85%,#00BA0C 100%);
 	background-image: linear-gradient(to right, #00BA0C 0%,#00BA0C 75%,#D7FFD1 80%,#00BA0C 85%,#00BA0C 100%);
+        background-image: -ms-linear-gradient(top,  #00BA0C 0%, #00BA0C 75%, #D7FFD1 80%, #00BA0C 85%, #00BA0C 100%);
     background-size: 100% 10px;
 	box-shadow: inset 0 -2px 2px rgba(0,0,0,0.5), inset 0 2px 2px rgba(255,255,255,0.8);
 	-webkit-animation: shine 1s linear infinite;
