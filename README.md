@@ -7,7 +7,7 @@ PyPlex
 
 Introduction
 ----
-After creating a Theme for Ombi https://github.com/tidusjar/Ombi (former Plex Requests), I've decided to create a Theme as well for Pyload. 
+After creating a Theme for Ombi https://github.com/tidusjar/Ombi (former Plex Requests), I've decided to create a Theme for Pyload as well. 
 
 I've used the Pyload "Next" theme as a base and the modified "Next" theme from https://github.com/OzzieIsaacs/pyload-NextTheme for the development of the PyPlex
 
