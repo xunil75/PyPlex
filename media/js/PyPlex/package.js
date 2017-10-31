@@ -159,33 +159,40 @@ function Package (ui, id, ele){
             link.id = link.fid;
             var li = document.createElement("li");
             $(li).css("margin-left",0);
-            
+            var pbColor = "#c37575";
+
             if (link.icon == 'arrow_right.png'){
                     link.icon = 'glyphicon glyphicon-arrow-right text-primary';
+                    pbColor = "#758dc3";
             }
             if (link.icon == 'status_downloading.png'){
                     link.icon = 'glyphicon glyphicon-cloud-download text-primary';
+                    pbColor = "#c3c175";
             }
             if (link.icon == 'status_failed.png'){
                     link.icon = 'glyphicon glyphicon-exclamation-sign text-danger';
+                    pbColor = "#c37575";
             }
             if (link.icon == 'status_finished.png'){
                     link.icon = 'glyphicon glyphicon-ok text-success';
+                    pbColor = "#75c375";
             }
             if (link.icon == 'status_queue.png'){
                     link.icon = 'glyphicon glyphicon-time text-info';
+                    pbColor = "#c5c5c5";
             }
             if (link.icon == 'status_offline.png'){
                     link.icon = 'glyphicon glyphicon-ban-circle text-danger';
+                    pbColor = "#c37575";
             }
             if (link.icon == 'status_waiting.png'){
                     link.icon = 'glyphicon glyphicon-time text-info';
+                    pbColor = "#c3c175";
             }
-            
 
             var html = "<span class='child_status'><span style='margin-right: 2px;' class='"+link.icon+"'></span></span>\n";
             html += "<span style='font-size: 18px; text-weight:bold'><a href='"+link.url+"'>";
-            html += link.name+"</a></span><br/><div class='child_secrow' style='background-color: #75c375; margin-left: 21px; margin-bottom: 7px; border-radius: 4px;'>";
+            html += link.name+"</a></span><br/><div class='child_secrow' style='background-color: " + pbColor + "; margin-left: 21px; margin-bottom: 7px; border-radius: 4px;'>";
             html += "<span class='child_status' style='font-size: 12px; color:#333; padding-left: 5px;'>"+link.statusmsg+"</span>&nbsp;"+link.error+"&nbsp;";
             html += "<span class='child_status' style='font-size: 12px; color:#333;'>"+link.format_size+"</span>";
             html += "<span class='child_status' style='font-size: 12px; color:#333;'> "+link.plugin+"</span>&nbsp;&nbsp;";
