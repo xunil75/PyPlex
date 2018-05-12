@@ -1,12 +1,23 @@
+table {
+  max-width: 98%;
+  table-layout: fixed;
+}
+
 th {
   font-size: 14px;
   font-weight: normal;
 }
+
 #LinksAktiv {
   font-weight: normal;
   font-size: 14px;
 }
+
 .lbl_status {
   font-size: 14px;
   font-weight: normal;
+}
+
+td {
+  word-wrap: break-word;
 }
