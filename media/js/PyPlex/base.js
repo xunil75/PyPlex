@@ -235,5 +235,20 @@ function on_captcha_click(c) {
     var y = (c.pageY - $(this).offset().top).toFixed(0);
     $("#cap_box #cap_result").val( x + ' , ' + y );
     return submit_captcha();
-}; 
+};
+
+// if file-button click/change, then upload-file-info-label will get filename. 
+$(document).on('change', '#add_file', function() {
+    $('#upload-file-info').text($(this).val().replace(/C:\\fakepath\\/i, ''));
+});
+
+// if window resize, then progress-bar-td tag will change colspan.
+$(window).on('resize', function() {
+    if ($(window).width() < 767) {
+        $('.progress-bar-td').attr('colspan','3');
+    } else {
+        $('.progress-bar-td').attr('colspan','5');
+    }
+});
+
 {% endautoescape %}

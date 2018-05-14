@@ -147,6 +147,10 @@ function LinkEntry(id){
             $(statusspan).html(item.statusmsg);
             $(statusspan).removeClass().addClass('label '+ labelcolor(item.status) + ' lbl_status');
             var name = document.createElement("td");
+            $(name).addClass('dl_name');
+            $(name).css('word-wrap', 'break-word');
+            $(name).css('max-width', '100%');
+            $(name).css('display', 'inline-block');
             $(name).html(item.name);
             var info = document.createElement("td");
             $(info).html(item.info);
@@ -217,7 +221,13 @@ function LinkEntry(id){
         this.elements.tr.appendChild(child);
 
         var secondchild = document.createElement('td');
-        $(secondchild).attr('colspan',5);
+        $(secondchild).addClass('progress-bar-td');
+        // change colspan when window-width is under 767px
+        if ($(window).width() < 767) {
+ 	    $(secondchild).attr('colspan', '3');
+ 	} else {
+	    $(secondchild).attr('colspan', '5');
+        }
         secondchild.appendChild(this.elements.progress);
 
         this.elements.pgbTr.appendChild(secondchild);

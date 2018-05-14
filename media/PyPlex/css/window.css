@@ -71,3 +71,8 @@
     margin-left: 15px;
     cursor: pointer;
 }
+
+#upload-file-info {
+    word-wrap: break-word;
+}
+
